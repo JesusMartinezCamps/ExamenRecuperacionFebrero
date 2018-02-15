@@ -17,12 +17,32 @@ public class Transaction {
 	public Transaction() {
 		
 	}
-	public Transaction(String hash, String prev_Hash, PublicKey pKey_sender, PublicKey pKey_recipient, int pigcoins, String message) {
+	public Transaction(String hash, String prev_hash, PublicKey pKey_sender, PublicKey pKey_recipient, int pigcoins, String message) {
 		this.hash = hash;
 		this.prev_hash = prev_hash;
 		this.pKey_sender = pKey_sender;
 		this.pKey_recipient = pKey_recipient;
 		this.pigcoins = pigcoins;
 		this.message = message;
+	}
+	
+	//getters & setters
+	public String getHash() {
+		return this.hash;
+	}
+	public String getPrevHash() {
+		return this.prev_hash;
+	}
+	public PublicKey getpKeySender() {
+		return this.pKey_sender;
+	}
+	public PublicKey getpKeyRecipient() {
+		return this.pKey_recipient;
+	}
+	public int getPigcoins() {
+		return this.pigcoins;
+	}
+	public String getMessage() {
+		return this.message;
 	}
 }

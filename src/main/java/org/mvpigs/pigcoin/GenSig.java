@@ -19,7 +19,6 @@ public class GenSig {
     public static KeyPair generateKeyPair() {
 
         try {
-
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance("DSA", "SUN");
             SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
             keyGen.initialize(1024, random);

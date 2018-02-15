@@ -4,7 +4,8 @@ package org.mvpigs.pigcoin;
 import java.security.KeyPair;
 import java.util.Map;
 
-public class App {
+
+public class AppJesusMartinez {
 
     public static void main( String[] args )
     {
@@ -53,7 +54,7 @@ public class App {
                                   "==============="        );
 
         Transaction trx = new Transaction();
-        trx = new Transaction("hash_1", "0", wallet_1.getAddress(), wallet_2.getAddress(), 20, "a flying pig!");
+       // trx = new Transaction("hash_1", "0", wallet_1.getAddress(), wallet_2.getAddress(), 20, "a flying pig!");
         
         System.out.println(trx.toString());
 
@@ -67,6 +68,7 @@ public class App {
         
         // Crea primero la direccion "origen" del sistema que genera los pigcoins
         Wallet origin = new Wallet();
+        /*
         origin.generateKeyPair();
 
         BlockChain bChain = new BlockChain();
@@ -80,6 +82,7 @@ public class App {
         // Visualiza el blockchain                
         bChain.summarize();
         
+        */
         /**
          * Ve la transaccion de una posicion determinada del blockchain
          */
@@ -88,7 +91,7 @@ public class App {
         System.out.println("\n" + "Ver Transaccion en posicion " + position.toString() + " del BlockChain" + "\n" + 
                                   "============================================"        );
 
-        bChain.summarize(position);        
+       //bChain.summarize(position);        
 
         /**
          * Indicar en la wallet
@@ -100,10 +103,10 @@ public class App {
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="        );
         
-        wallet_1.loadCoins(bChain);
+        //wallet_1.loadCoins(bChain);
         System.out.println(wallet_1.toString());
 
-        wallet_2.loadCoins(bChain);
+        //wallet_2.loadCoins(bChain);
         System.out.println(wallet_2.toString());        
 
         /**
@@ -115,6 +118,7 @@ public class App {
         
         System.out.println("\n" + "Ver las transacciones ENTRANTES de la wallet_1" + "\n" + 
                                   "=============================================="        );
+        /*
         wallet_1.loadInputTransactions(bChain);
         System.out.println("Wallet = " + wallet_1.getAddress().hashCode());
         System.out.println("Transacciones = " + wallet_1.getInputTransactions().toString());
@@ -130,7 +134,7 @@ public class App {
         wallet_2.loadInputTransactions(bChain);
         System.out.println("Wallet = " + wallet_1.getAddress().hashCode());
         System.out.println("Transacciones = " + wallet_2.getInputTransactions().toString());      
-
+*/
         
         /**
          * Recargamos la wallet_1
@@ -138,7 +142,7 @@ public class App {
          */
         
         System.out.println("\n" + ">>>>>>>>>>>> RECARGA WALLET_1 >>>>>>>>>>>>" + "\n");
-        
+        /*
         trx = new Transaction("hash_4", "2", origin.getAddress(), wallet_1.getAddress(), 20, "sausages puagh!");
         bChain.addOrigin(trx);
         trx = new Transaction("hash_5", "3", origin.getAddress(), wallet_1.getAddress(), 10, "baked beans are off!");
@@ -161,7 +165,7 @@ public class App {
         wallet_2.loadOutputTransactions(bChain);
         System.out.println(wallet_2.toString());    
 
-
+*/
 
         /**
          * Enviar pigcoins de la wallet_1 a la wallet_2
@@ -204,8 +208,8 @@ public class App {
          */
 
         Double pigcoins = 25d;
-        Map<String, Double> consumedCoins = wallet_1.collectCoins(pigcoins);
-        System.out.println("Pigcoins enviados a la wallet_2 y transacciones consumidas: " + consumedCoins);
+        //Map<String, Double> consumedCoins = wallet_1.collectCoins(pigcoins);
+       // System.out.println("Pigcoins enviados a la wallet_2 y transacciones consumidas: " + consumedCoins);
 
         /**
          * Una vez que recolectes los pigcoins (transacciones) de tu wallet
@@ -214,8 +218,8 @@ public class App {
          */
         
         String message = "he roto la hucha :(";
-        byte[] signedTransaction = wallet_1.signTransaction(message); // usa GenSig.sign()
-        wallet_1.sendCoins(wallet_2.getAddress(), pigcoins, message, bChain); // usa wallet.collectCoins() y bChain.processTransactions()
+       // byte[] signedTransaction = wallet_1.signTransaction(message); // usa GenSig.sign()
+       // wallet_1.sendCoins(wallet_2.getAddress(), pigcoins, message, bChain); // usa wallet.collectCoins() y bChain.processTransactions()
         
         /**
          *  wallet.sendCoins() invoca a 
@@ -250,6 +254,7 @@ public class App {
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="            );
         // comprobamos que la transaccion se ha realizado
+        /*
         wallet_1.loadCoins(bChain);
         wallet_1.loadInputTransactions(bChain);
         wallet_1.loadOutputTransactions(bChain);
@@ -295,5 +300,7 @@ public class App {
         wallet_2.loadInputTransactions(bChain);
         wallet_2.loadOutputTransactions(bChain);
         System.out.println(wallet_2.toString());
+    */
+    
     }
 }

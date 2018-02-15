@@ -22,7 +22,8 @@ public class BlockChain {
 		getBlockChain().add(transaction);		
 	}
 	
-	public void summarize() {
-		
+	public void summarize() {		
+		for (Transaction transaction : getBlockChain()) 
+			System.out.println(transaction.toString());		
 	}
 }

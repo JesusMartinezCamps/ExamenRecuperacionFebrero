@@ -4,6 +4,8 @@ import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Wallet {
 	//attributes
@@ -74,8 +76,9 @@ public class Wallet {
 			if(wallet.getAddress() == transaction.getpKeyRecipient()) 
 				wallet.setTotalInput(transaction.getPigcoins());
 			
+			
 			if(wallet.getAddress() == transaction.getpKeySender()) 
-				wallet.setTotalOutput(transaction.getPigcoins());				
+				wallet.setTotalOutput(transaction.getPigcoins());			
 		}
 		
 		setBalance(wallet);
@@ -100,5 +103,37 @@ public class Wallet {
 				getOutputTransactions().add(transaction);
 		}
 	}
+
+	public void sendCoins(PublicKey pKey_recipient, double coins, String message, BlockChain bChain) {
+		
+	}
+
+	public Map<String, Double> collectCoins(Double pigcoins) {
+		ArrayList<Transaction> newOutputTransactions = discardOutputTransactions();
+		Map<String, Double> consumedCoins = new HashMap<String, Double>();
+		
+		for (Transaction inputTransaction : newOutputTransactions) {
+			
+			consumedCoins.put(inputTransaction.getHash(), (double) inputTransaction.getPigcoins());
+		}
+		
+		System.out.println("------------------------------------------------Test-------------------------------------");
+		return consumedCoins;
+	}
 	
+	public ArrayList<Transaction> discardOutputTransactions(){
+		ArrayList<Transaction> newInputTransactions = new ArrayList<Transaction>();
+		
+		for (Transaction inputTransaction : getInputTransactions()) {
+			Boolean found = false;
+			
+			for (Transaction outputTransaction : getOutputTransactions()) {
+				if(inputTransaction == outputTransaction)
+					found = true;
+			}			
+			if(!found)
+				newInputTransactions.add(inputTransaction);
+		}
+		return newInputTransactions;
+	}
 }

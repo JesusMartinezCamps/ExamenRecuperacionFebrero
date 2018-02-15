@@ -141,7 +141,7 @@ public class AppJesusMartinez {
          */
         
         System.out.println("\n" + ">>>>>>>>>>>> RECARGA WALLET_1 >>>>>>>>>>>>" + "\n");
-        /*
+        
         trx = new Transaction("hash_4", "2", origin.getAddress(), wallet_1.getAddress(), 20, "sausages puagh!");
         bChain.addOrigin(trx);
         trx = new Transaction("hash_5", "3", origin.getAddress(), wallet_1.getAddress(), 10, "baked beans are off!");
@@ -164,7 +164,6 @@ public class AppJesusMartinez {
         wallet_2.loadOutputTransactions(bChain);
         System.out.println(wallet_2.toString());    
 
-*/
 
         /**
          * Enviar pigcoins de la wallet_1 a la wallet_2
@@ -207,8 +206,8 @@ public class AppJesusMartinez {
          */
 
         Double pigcoins = 25d;
-        //Map<String, Double> consumedCoins = wallet_1.collectCoins(pigcoins);
-       // System.out.println("Pigcoins enviados a la wallet_2 y transacciones consumidas: " + consumedCoins);
+        Map<String, Double> consumedCoins = wallet_1.collectCoins(pigcoins);
+        System.out.println("Pigcoins enviados a la wallet_2 y transacciones consumidas: " + consumedCoins);
 
         /**
          * Una vez que recolectes los pigcoins (transacciones) de tu wallet
@@ -217,8 +216,8 @@ public class AppJesusMartinez {
          */
         
         String message = "he roto la hucha :(";
-       // byte[] signedTransaction = wallet_1.signTransaction(message); // usa GenSig.sign()
-       // wallet_1.sendCoins(wallet_2.getAddress(), pigcoins, message, bChain); // usa wallet.collectCoins() y bChain.processTransactions()
+        //byte[] signedTransaction = wallet_1.signTransaction(message); // usa GenSig.sign()
+        wallet_1.sendCoins(wallet_2.getAddress(), pigcoins, message, bChain); // usa wallet.collectCoins() y bChain.processTransactions()
         
         /**
          *  wallet.sendCoins() invoca a 
@@ -253,7 +252,7 @@ public class AppJesusMartinez {
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="            );
         // comprobamos que la transaccion se ha realizado
-        /*
+        
         wallet_1.loadCoins(bChain);
         wallet_1.loadInputTransactions(bChain);
         wallet_1.loadOutputTransactions(bChain);
@@ -299,7 +298,6 @@ public class AppJesusMartinez {
         wallet_2.loadInputTransactions(bChain);
         wallet_2.loadOutputTransactions(bChain);
         System.out.println(wallet_2.toString());
-    */
     
     }
 }

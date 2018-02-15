@@ -30,15 +30,24 @@ public class Wallet {
 	public PublicKey getAddress() {
 		return this.address;
 	}
-
+	public double getTotalInput() {
+		return this.total_input;
+	}
+	public double getTotalOutput() {
+		return this.total_output;
+	}
+	public double getBalance() {
+		return this.balance;
+	}
 	//methods
 	public void generateKeyPair() {
 		KeyPair pair = GenSig.generateKeyPair();
 		setSK(pair.getPrivate());
 		setAddress(pair.getPublic());
 	}
-	/*
+	
 	public String toString() {
-		
-	}*/
+		String message = "Wallet: " + getAddress().hashCode() + "\n Total input: "+ getTotalInput() + "\n Total output: " + getTotalOutput() + "\n Balance: " + getBalance() + "\n"; 
+		return message;
+	}
 }

@@ -12,16 +12,21 @@ import org.mvpigs.pigcoin.Wallet;
 public class WalletTest {
 
 	Wallet wallet;
+	
 	@Before
 	public void setUp() {
 		wallet = new Wallet();
 	}
-
+	
 	@Test
-	public void setSKTest() {
-		KeyPair pair = GenSig.generateKeyPair();
-		wallet.setSK(pair.getPrivate());
-		
-		
+	public void generateKeyPairTest() {		
+		wallet.generateKeyPair();		
+		assertNotEquals(null, wallet.getAddress().hashCode());
+	}
+	
+	@Test
+	public void toStringTest() {
+		wallet.generateKeyPair();
+		System.out.println("Wallet_1: \n" + wallet.toString());		
 	}
 }

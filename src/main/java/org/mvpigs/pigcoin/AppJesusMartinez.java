@@ -68,7 +68,7 @@ public class AppJesusMartinez {
         
         // Crea primero la direccion "origen" del sistema que genera los pigcoins
         Wallet origin = new Wallet();
-        /*
+        
         origin.generateKeyPair();
 
         BlockChain bChain = new BlockChain();
@@ -82,7 +82,7 @@ public class AppJesusMartinez {
         // Visualiza el blockchain                
         bChain.summarize();
         
-        */
+        
         /**
          * Ve la transaccion de una posicion determinada del blockchain
          */

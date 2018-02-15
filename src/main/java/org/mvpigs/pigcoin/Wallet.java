@@ -22,11 +22,9 @@ public class Wallet {
 	public void setSK(PrivateKey privateKey) {
 		this.sKey = privateKey;		
 	}
-
 	public void setAddress(PublicKey publicKey) {
 		this.address = publicKey;
 	}
-
 	public PublicKey getAddress() {
 		return this.address;
 	}
@@ -39,6 +37,14 @@ public class Wallet {
 	public double getBalance() {
 		return this.balance;
 	}
+	public void setTotalInput(double input) {
+		this.total_input += input;
+	}
+	public void setTotalOutput(double output) {
+		this.total_output += output;
+	}
+	
+	
 	//methods
 	public void generateKeyPair() {
 		KeyPair pair = GenSig.generateKeyPair();
@@ -50,5 +56,24 @@ public class Wallet {
 		String message = " Wallet: " + getAddress().hashCode() + "\n Total input: "+ getTotalInput();
 		message += "\n Total output: " + getTotalOutput() + "\n Balance: " + getBalance() + "\n";
 		return message;
+	}
+
+	public void loadCoins(BlockChain bChain) {
+		Wallet wallet = null;
+		for (Transaction transaction : bChain.getBlockChain()) {
+			
+			wallet = this;
+			if(wallet.getAddress() == transaction.getpKeyRecipient()) 
+				wallet.setTotalInput(transaction.getPigcoins());
+			
+			if(wallet.getAddress() == transaction.getpKeySender()) 
+				wallet.setTotalOutput(transaction.getPigcoins());				
+		}
+		
+		setBalance(wallet);
+	}
+
+	public void setBalance(Wallet wallet) {
+		this.balance = getTotalInput() - getTotalOutput();
 	}
 }

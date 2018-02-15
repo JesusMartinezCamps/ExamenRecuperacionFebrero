@@ -22,7 +22,7 @@ public class Transaction {
 		this.prev_hash = prev_hash;
 		this.pKey_sender = pKey_sender;
 		this.pKey_recipient = pKey_recipient;
-		this.pigcoins = pigcoins;
+		this.pigcoins += pigcoins;
 		this.message = message;
 	}
 	

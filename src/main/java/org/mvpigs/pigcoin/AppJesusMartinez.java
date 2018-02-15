@@ -90,7 +90,7 @@ public class AppJesusMartinez {
         System.out.println("\n" + "Ver Transaccion en posicion " + position.toString() + " del BlockChain" + "\n" + 
                                   "============================================"        );
 
-        bChain.summarize(position);        
+        bChain.summarize(position);
 
         /**
          * Indicar en la wallet
@@ -102,10 +102,10 @@ public class AppJesusMartinez {
         System.out.println("\n" + "Ver el total de pigcoins de las dos wallet" + "\n" + 
                                   "=========================================="        );
         
-        //wallet_1.loadCoins(bChain);
+        wallet_1.loadCoins(bChain);
         System.out.println(wallet_1.toString());
 
-        //wallet_2.loadCoins(bChain);
+        wallet_2.loadCoins(bChain);
         System.out.println(wallet_2.toString());        
 
         /**

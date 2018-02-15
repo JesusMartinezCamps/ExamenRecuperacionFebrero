@@ -45,4 +45,12 @@ public class Transaction {
 	public String getMessage() {
 		return this.message;
 	}
+	
+	//methods
+	public String toString() {
+		String message = "hash: "+ getHash() + "\n prev_hash: " + getPrevHash() + "\n pKey_sender: " + getpKeySender().hashCode();
+		message +=  "\n pKey_recipient: " + getpKeyRecipient().hashCode() + "\n pigcoins: " +getPigcoins() + "\n message: " +getMessage();
+		
+		return message;
+	}
 }

@@ -47,7 +47,8 @@ public class Wallet {
 	}
 	
 	public String toString() {
-		String message = "Wallet: " + getAddress().hashCode() + "\n Total input: "+ getTotalInput() + "\n Total output: " + getTotalOutput() + "\n Balance: " + getBalance() + "\n"; 
+		String message = "Wallet: " + getAddress().hashCode() + "\n Total input: "+ getTotalInput();
+		message += "\n Total output: " + getTotalOutput() + "\n Balance: " + getBalance() + "\n";
 		return message;
 	}
 }

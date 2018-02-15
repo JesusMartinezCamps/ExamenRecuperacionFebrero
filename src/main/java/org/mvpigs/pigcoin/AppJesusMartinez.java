@@ -117,7 +117,7 @@ public class AppJesusMartinez {
         
         System.out.println("\n" + "Ver las transacciones ENTRANTES de la wallet_1" + "\n" + 
                                   "=============================================="        );
-        /*
+        
         wallet_1.loadInputTransactions(bChain);
         System.out.println("Wallet = " + wallet_1.getAddress().hashCode());
         System.out.println("Transacciones = " + wallet_1.getInputTransactions().toString());
@@ -133,7 +133,7 @@ public class AppJesusMartinez {
         wallet_2.loadInputTransactions(bChain);
         System.out.println("Wallet = " + wallet_1.getAddress().hashCode());
         System.out.println("Transacciones = " + wallet_2.getInputTransactions().toString());      
-*/
+
         
         /**
          * Recargamos la wallet_1

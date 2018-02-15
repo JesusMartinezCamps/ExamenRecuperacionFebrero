@@ -11,7 +11,9 @@ public class Wallet {
 	private PrivateKey sKey = null;
 	private double total_input = 0d;
 	private double total_output = 0d;
-	private double balance = 0d;
+	private double balance = 0d;	
+	private ArrayList<Transaction> inputTransactions = new ArrayList<Transaction>();
+	private ArrayList<Transaction> outputTransactions = new ArrayList<Transaction>();
 	
 	//constructor
 	public Wallet() {
@@ -19,6 +21,12 @@ public class Wallet {
 	}
 
 	//getters & setters
+	public ArrayList<Transaction> getInputTransactions(){
+		return this.inputTransactions;
+	}
+	public ArrayList<Transaction> getOutputTransactions() {
+		return this.outputTransactions;
+	}
 	public void setSK(PrivateKey privateKey) {
 		this.sKey = privateKey;		
 	}
@@ -76,4 +84,21 @@ public class Wallet {
 	public void setBalance(Wallet wallet) {
 		this.balance = getTotalInput() - getTotalOutput();
 	}
+
+	public void loadInputTransactions(BlockChain bChain) {
+		for (Transaction transaction : bChain.getBlockChain()) {
+			
+			if(this.getAddress() == transaction.getpKeyRecipient())
+				getInputTransactions().add(transaction);
+		}
+	}
+
+	public void loadOutputTransactions(BlockChain bChain) {
+		for (Transaction transaction : bChain.getBlockChain()) {
+			
+			if(this.getAddress() == transaction.getpKeySender())
+				getOutputTransactions().add(transaction);
+		}
+	}
+	
 }

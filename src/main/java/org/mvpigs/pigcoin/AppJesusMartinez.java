@@ -90,7 +90,7 @@ public class AppJesusMartinez {
         System.out.println("\n" + "Ver Transaccion en posicion " + position.toString() + " del BlockChain" + "\n" + 
                                   "============================================"        );
 
-       //bChain.summarize(position);        
+        bChain.summarize(position);        
 
         /**
          * Indicar en la wallet

@@ -1,5 +1,8 @@
 package org.mvpigs.pigcoin;
 
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 
 public class BlockChain {
@@ -9,8 +12,7 @@ public class BlockChain {
 	//constructor
 	public BlockChain() {
 		
-	}
-	
+	}	
 	
 	//getters & setters
 	public ArrayList<Transaction> getBlockChain(){
@@ -25,5 +27,13 @@ public class BlockChain {
 	public void summarize() {		
 		for (Transaction transaction : getBlockChain()) 
 			System.out.println(transaction.toString());		
+	}
+
+	public void summarize(Integer index) {
+	    try {
+	    	System.out.println(getBlockChain().get(index));
+        } catch (Exception e) {
+            System.out.println("La posicion añadida no és válida.");;
+        }		
 	}
 }
